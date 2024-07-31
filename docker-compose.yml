@@ -1,0 +1,11 @@
+services:
+  rest-output-server:
+    build: ./output_server/
+    environment:
+      database: database # <имя созданной БД>
+      database_user: postgres # <логин юзера для подключения>
+      database_password: admin # <пароль юзера для подключения>
+      database_host: host.docker.internal # <расположение БД в сети>
+      database_port: 5432 # <порт БД>
+    ports:
+      - "8000:8000"
