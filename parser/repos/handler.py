@@ -29,7 +29,7 @@ def handler(event, context):
     existing_repos = {repo_id:stars for repo_id, stars in cursor.fetchall()}
 
     if response.get('items') is None:
-        exit()
+        return {'statusCode':504, 'body':'Have not data'}
 
     #делим спаршеные репозитории на репо, требующие изменения, и репо, требующие добавления
     #это необходимо чтобы обработать случай, когда 101 репозиторий становится 100
